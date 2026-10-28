@@ -36,7 +36,7 @@ export function HeroSection() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href="#pricing" className={primaryLinkClass}>
-              Офлайн в Минске
+              Онлайн
               <span
                 aria-hidden="true"
                 className="transition-transform duration-300 motion-safe:group-hover:translate-x-1"
@@ -45,7 +45,7 @@ export function HeroSection() {
               </span>
             </a>
             <a href="#pricing" className={secondaryLinkClass}>
-              Онлайн
+              Офлайн в Минске
               <span
                 aria-hidden="true"
                 className="transition-transform duration-300 motion-safe:group-hover:translate-x-1"
