@@ -23,7 +23,7 @@ export function HeroSection() {
           <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
             01 — Метод
           </p>
-          <h1 className="mt-4 font-heading text-[2.65rem] leading-[1.05] tracking-tight min-[400px]:text-5xl sm:text-6xl lg:text-5xl xl:text-6xl">
+          <h1 className="mt-4 font-heading text-[2.65rem] leading-[1.05] tracking-tight text-white min-[400px]:text-5xl sm:text-6xl lg:text-5xl xl:text-6xl">
             <span className="block">Научный подход</span>
             <span className="mt-1 block pb-1 text-white">к фитнесу</span>
           </h1>
