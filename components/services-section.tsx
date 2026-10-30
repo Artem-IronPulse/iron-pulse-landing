@@ -84,9 +84,13 @@ function CheckIcon() {
   );
 }
 
-function buttonClass(featured: boolean) {
+function buttonClass(planId: string, featured: boolean) {
   const base =
     "inline-flex h-12 w-full items-center justify-center gap-2 rounded-full text-sm font-semibold transition duration-300 motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#070708]";
+
+  if (planId === "remote") {
+    return `${base} border-t border-white/55 bg-gradient-to-b from-[#e9fff2] to-accent text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_10px_24px_-12px_rgba(61,255,138,0.7)] hover:brightness-105`;
+  }
 
   if (featured) {
     return `${base} bg-accent text-black hover:bg-[#b8ffd6] hover:shadow-[0_0_32px_rgba(61,255,138,0.45)]`;
@@ -97,7 +101,7 @@ function buttonClass(featured: boolean) {
 
 export function ServicesSection() {
   return (
-    <section id="pricing" className="scroll-mt-24 border-t border-white/10">
+    <section id="pricing" className="scroll-mt-32 border-t border-white/10">
       <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
@@ -201,7 +205,7 @@ export function ServicesSection() {
                     href={TELEGRAM_HREF}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={buttonClass(plan.featured)}
+                    className={buttonClass(plan.id, plan.featured)}
                     aria-label={`${plan.cta}: ${plan.title}`}
                   >
                     {plan.cta}

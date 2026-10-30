@@ -12,7 +12,7 @@ const METRICS = [
 
 export function HeroSection() {
   return (
-    <section id="approach" className="relative scroll-mt-24">
+    <section id="approach" className="relative scroll-mt-32">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 left-1/2 h-[460px] w-[760px] -translate-x-1/2 rounded-full bg-accent/15 blur-3xl" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_72%)]" />
@@ -25,9 +25,7 @@ export function HeroSection() {
           </p>
           <h1 className="mt-4 font-heading text-[2.65rem] leading-[1.05] tracking-tight min-[400px]:text-5xl sm:text-6xl lg:text-5xl xl:text-6xl">
             <span className="block">Научный подход</span>
-            <span className="mt-1 block bg-gradient-to-r from-white via-white to-accent bg-clip-text pb-1 text-transparent">
-              к фитнесу
-            </span>
+            <span className="mt-1 block pb-1 text-white">к фитнесу</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-400 sm:text-lg">
             Нагрузка по RPE, восстановление по HRV. Интенсивность каждой сессии

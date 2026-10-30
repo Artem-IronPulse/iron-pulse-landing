@@ -47,7 +47,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10">
+      <header className="sticky top-14 z-40 border-b border-white/10 bg-black/40 backdrop-blur-xl">
           <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-3 px-5 sm:px-6 lg:px-8">
             <a
               href="#approach"
@@ -104,7 +104,7 @@ export function SiteHeader() {
         aria-label="Разделы страницы"
         className={
           open
-            ? "fixed inset-x-0 top-16 bottom-0 z-40 flex-col bg-[#070708]/96 px-5 py-8 backdrop-blur-xl max-md:flex md:hidden"
+            ? "fixed inset-x-0 top-30 bottom-0 z-40 flex-col bg-[#070708]/96 px-5 py-8 backdrop-blur-xl max-md:flex md:hidden"
             : "hidden"
         }
       >

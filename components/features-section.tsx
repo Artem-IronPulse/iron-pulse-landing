@@ -20,7 +20,7 @@ const FEATURES = [
 
 export function FeaturesSection() {
   return (
-    <section id="experience" className="scroll-mt-24 border-t border-white/10">
+    <section id="experience" className="scroll-mt-32 border-t border-white/10">
       <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400">

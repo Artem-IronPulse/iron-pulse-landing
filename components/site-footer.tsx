@@ -25,8 +25,8 @@ const REQUISITES = [
 
 export function SiteFooter() {
   return (
-    <footer id="contacts" className="scroll-mt-24 border-t border-white/10">
-      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+    <footer id="contacts" className="scroll-mt-32 border-t border-white/10">
+      <div className="mx-auto w-full max-w-6xl px-5 pt-16 pb-28 sm:px-6 sm:pt-20 sm:pb-32 lg:px-8">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-xl">
             <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
@@ -49,7 +49,7 @@ export function SiteFooter() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative z-10 inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-full border border-white/12 px-5 text-sm font-semibold transition duration-300 motion-safe:hover:-translate-y-0.5 hover:border-accent hover:bg-accent hover:text-black hover:shadow-[0_0_28px_rgba(61,255,138,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#070708] sm:w-auto"
+                  className="relative z-10 inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-5 text-sm font-semibold text-white backdrop-blur-xl transition duration-300 motion-safe:hover:-translate-y-0.5 hover:border-white/35 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#070708] sm:w-auto"
                 >
                   <item.icon />
                   {item.name}
