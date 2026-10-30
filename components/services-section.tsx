@@ -93,10 +93,10 @@ function buttonClass(planId: string, featured: boolean) {
   }
 
   if (featured) {
-    return `${base} bg-accent text-black hover:bg-[#b8ffd6] hover:shadow-[0_0_32px_rgba(61,255,138,0.45)]`;
+    return `${base} bg-accent text-black hover:bg-[#b8ffd6]`;
   }
 
-  return `${base} border border-white/15 text-white hover:border-accent hover:bg-accent hover:text-black hover:shadow-[0_0_32px_rgba(61,255,138,0.35)]`;
+  return `${base} border border-white/15 text-white hover:border-white/30 hover:bg-white/[0.06]`;
 }
 
 export function ServicesSection() {

@@ -6,7 +6,7 @@ export function TelegramFab() {
       href={TELEGRAM_HREF}
       target="_blank"
       rel="noopener noreferrer"
-      className="fab-pulse fixed right-4 bottom-5 z-40 inline-flex items-center gap-2 rounded-full border-t border-white/55 bg-gradient-to-b from-[#e9fff2] to-accent px-4 py-3 text-sm font-semibold text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#070708] sm:right-6"
+      className="fixed right-4 bottom-[90px] z-40 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-semibold text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#070708] sm:right-6"
     >
       <svg viewBox="0 0 24 24" className="size-[18px] shrink-0" aria-hidden="true">
         <path

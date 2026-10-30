@@ -11,7 +11,7 @@ const NAV = [
 ];
 
 const primaryLinkClass =
-  "h-11 items-center justify-center rounded-full bg-accent px-5 text-sm font-semibold text-black transition duration-300 motion-safe:hover:-translate-y-0.5 hover:bg-[#b8ffd6] hover:shadow-[0_0_32px_rgba(61,255,138,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#070708]";
+  "h-11 items-center justify-center rounded-full bg-accent px-5 text-sm font-semibold text-black transition duration-300 hover:bg-[#b8ffd6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#070708]";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);

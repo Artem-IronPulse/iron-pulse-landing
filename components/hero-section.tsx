@@ -1,8 +1,8 @@
 const primaryLinkClass =
-  "group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-accent px-6 text-sm font-semibold text-black transition duration-300 motion-safe:hover:-translate-y-0.5 hover:bg-[#b8ffd6] hover:shadow-[0_0_32px_rgba(61,255,138,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#070708] sm:w-auto";
+  "group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-t border-white/55 bg-gradient-to-b from-[#e9fff2] to-accent px-6 text-sm font-semibold text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_10px_24px_-12px_rgba(61,255,138,0.7)] transition duration-300 motion-safe:hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#070708] sm:w-auto";
 
 const secondaryLinkClass =
-  "group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 text-sm font-semibold text-white transition duration-300 motion-safe:hover:-translate-y-0.5 hover:border-accent/70 hover:bg-accent/10 hover:shadow-[0_0_28px_rgba(61,255,138,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#070708] sm:w-auto";
+  "group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 text-sm font-semibold text-white transition duration-300 motion-safe:hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#070708] sm:w-auto";
 
 const METRICS = [
   { label: "HRV", value: "64", unit: "мс" },
