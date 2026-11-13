@@ -18,9 +18,23 @@ const SOCIALS = [
   },
 ];
 
-const REQUISITES = [
-  ["ИП", "ХОДЖОЯН АРТЁМ САРКИСОВИЧ"],
-  ["УНП", "791392856"],
+const REQUISITES: { term: string; value: string; href?: string }[] = [
+  { term: "ИП", value: "ХОДЖОЯН АРТЁМ САРКИСОВИЧ" },
+  { term: "УНП", value: "791392856" },
+  { term: "Телефон", value: "+375295114184", href: "tel:+375295114184" },
+  { term: "Почта", value: "mc_orion@mail.ru", href: "mailto:mc_orion@mail.ru" },
+];
+
+const PAYMENTS = [
+  { src: "/payments/White/WHITE%20LOGOS/white-01.png", alt: "Альфа-Банк" },
+  { src: "/payments/White/WHITE%20LOGOS/white-02.png", alt: "Visa" },
+  { src: "/payments/White/WHITE%20LOGOS/white-03.png", alt: "Visa Secure" },
+  { src: "/payments/White/WHITE%20LOGOS/white-04.png", alt: "Mastercard ID Check" },
+  { src: "/payments/White/WHITE%20LOGOS/white-05.png", alt: "Mastercard" },
+  { src: "/payments/White/WHITE%20LOGOS/white-06.png", alt: "Белкарт Интернет Пароль" },
+  { src: "/payments/White/WHITE%20LOGOS/white-08.png", alt: "Белкарт" },
+  { src: "/payments/White/WHITE%20LOGOS/white-09.png", alt: "Samsung Pay" },
+  { src: "/payments/White/WHITE%20LOGOS/white-10.png", alt: "Apple Pay", invert: true },
 ];
 
 export function SiteFooter() {
@@ -76,15 +90,23 @@ export function SiteFooter() {
               Реквизиты ИП
             </p>
             <dl className="mt-3">
-              {REQUISITES.map(([term, value]) => (
+              {REQUISITES.map((item) => (
                 <div
-                  key={term}
-                  className="grid gap-1 border-b border-white/10 py-2.5 text-sm sm:grid-cols-[4.5rem_1fr] sm:gap-4"
+                  key={item.term}
+                  className="grid gap-1 border-b border-white/10 py-2.5 text-sm sm:grid-cols-[5.75rem_1fr] sm:gap-4"
                 >
                   <dt className="font-mono text-[11px] tracking-[0.14em] text-zinc-500">
-                    {term}
+                    {item.term}
                   </dt>
-                  <dd className="text-zinc-300 [overflow-wrap:anywhere]">{value}</dd>
+                  <dd className="text-zinc-300 [overflow-wrap:anywhere]">
+                    {item.href ? (
+                      <a href={item.href} className="transition-colors hover:text-emerald-400">
+                        {item.value}
+                      </a>
+                    ) : (
+                      item.value
+                    )}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -109,7 +131,21 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <p className="mt-8 text-xs text-zinc-500">© 2026 Железный Пульс</p>
+        <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 border-t border-white/10 pt-8">
+          {PAYMENTS.map((logo) => (
+            <li key={logo.alt} className="flex h-7 items-center">
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className={`h-[26px] w-auto max-w-[9.5rem] object-contain opacity-70 grayscale ${
+                  logo.invert ? "invert" : ""
+                }`}
+              />
+            </li>
+          ))}
+        </ul>
+
+        <p className="mt-8 text-center text-xs text-zinc-500">© 2026 Железный Пульс</p>
       </div>
     </footer>
   );
