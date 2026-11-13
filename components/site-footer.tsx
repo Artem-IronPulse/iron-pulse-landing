@@ -18,13 +18,6 @@ const SOCIALS = [
   },
 ];
 
-const REQUISITES: { term: string; value: string; href?: string }[] = [
-  { term: "ИП", value: "ХОДЖОЯН АРТЁМ САРКИСОВИЧ" },
-  { term: "УНП", value: "791392856" },
-  { term: "Телефон", value: "+375295114184", href: "tel:+375295114184" },
-  { term: "Почта", value: "mc_orion@mail.ru", href: "mailto:mc_orion@mail.ru" },
-];
-
 const PAYMENTS = [
   { src: "/payments/White/WHITE%20LOGOS/white-01.png", alt: "Альфа-Банк" },
   { src: "/payments/White/WHITE%20LOGOS/white-02.png", alt: "Visa" },
@@ -76,7 +69,7 @@ export function SiteFooter() {
 
         <div className="mt-14 grid gap-10 border-t border-white/10 pt-8 md:grid-cols-[1fr_1.1fr] md:gap-16">
           <div>
-            <a href="#approach" className="inline-flex items-center gap-2.5">
+            <a href="/#approach" className="inline-flex items-center gap-2.5">
               <PulseMark className="size-8" />
               <span className="font-heading text-sm tracking-tight">Железный Пульс</span>
             </a>
@@ -89,28 +82,40 @@ export function SiteFooter() {
             <p className="font-mono text-[11px] tracking-[0.18em] text-zinc-500">
               Реквизиты ИП
             </p>
-            <dl className="mt-3">
-              {REQUISITES.map((item) => (
-                <div
-                  key={item.term}
-                  className="grid gap-1 border-b border-white/10 py-2.5 text-sm sm:grid-cols-[5.75rem_1fr] sm:gap-4"
+            <address className="mt-3 space-y-1.5 text-[13px] leading-relaxed text-zinc-400 not-italic">
+              <p>ИП Ходжоян Артём Саркисович</p>
+              <p>УНП 791392856</p>
+              <p>
+                Юридический адрес: Могилевская обл., Чаусский р-н, аг. Антоновка,
+                ул. Центральная, д. 5.
+              </p>
+              <p>
+                Свидетельство о гос. регистрации № 791392856 от 03.08.2026 выдано
+                Чаусским РИК.
+              </p>
+              <p>
+                Телефон:{" "}
+                <a href="tel:+375295114184" className="text-zinc-300 transition-colors hover:text-emerald-400">
+                  +375 29 511-41-84
+                </a>
+              </p>
+              <p>
+                E-mail:{" "}
+                <a
+                  href="mailto:mc_orion@mail.ru"
+                  className="text-zinc-300 transition-colors hover:text-emerald-400"
                 >
-                  <dt className="font-mono text-[11px] tracking-[0.14em] text-zinc-500">
-                    {item.term}
-                  </dt>
-                  <dd className="text-zinc-300 [overflow-wrap:anywhere]">
-                    {item.href ? (
-                      <a href={item.href} className="transition-colors hover:text-emerald-400">
-                        {item.value}
-                      </a>
-                    ) : (
-                      item.value
-                    )}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+                  mc_orion@mail.ru
+                </a>
+              </p>
+            </address>
             <nav aria-label="Документы" className="mt-4 flex flex-col gap-2">
+              <a
+                href="/payment-info"
+                className="text-sm text-neutral-500 transition-colors hover:text-emerald-500"
+              >
+                Правила оплаты и возврата
+              </a>
               <a
                 href="/offer.pdf"
                 target="_blank"

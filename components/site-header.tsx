@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { PulseMark } from "@/components/pulse-mark";
 
 const NAV = [
-  { href: "#approach", label: "Подход" },
-  { href: "#experience", label: "Опыт" },
-  { href: "#pricing", label: "Тарифы" },
-  { href: "#contacts", label: "Контакты" },
+  { href: "/#approach", label: "Подход" },
+  { href: "/#experience", label: "Опыт" },
+  { href: "/#pricing", label: "Тарифы" },
+  { href: "/#contacts", label: "Контакты" },
 ];
 
 const primaryLinkClass =
@@ -50,7 +50,7 @@ export function SiteHeader() {
       <header className="sticky top-14 z-40 border-b border-white/10 bg-black/40 backdrop-blur-xl">
           <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-3 px-5 sm:px-6 lg:px-8">
             <a
-              href="#approach"
+              href="/#approach"
               className="flex min-w-0 items-center gap-2.5 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#070708]"
               onClick={closeMenu}
             >
@@ -73,7 +73,7 @@ export function SiteHeader() {
             </nav>
 
             <div className="flex items-center gap-2">
-              <a href="#contacts" className={`hidden sm:inline-flex ${primaryLinkClass}`}>
+              <a href="/#contacts" className={`hidden sm:inline-flex ${primaryLinkClass}`}>
                 Записаться
               </a>
               <button
@@ -122,7 +122,7 @@ export function SiteHeader() {
           ))}
         </ul>
         <a
-          href="#contacts"
+          href="/#contacts"
           className={`mt-8 inline-flex w-full ${primaryLinkClass}`}
           onClick={closeMenu}
         >
