@@ -82,12 +82,12 @@ export function SiteFooter() {
             <p className="font-mono text-[11px] tracking-[0.18em] text-zinc-500">
               Реквизиты ИП
             </p>
-            <address className="mt-3 space-y-1.5 text-[13px] leading-relaxed text-zinc-400 not-italic">
+            <address className="mt-3 space-y-1.5 text-[13px] leading-relaxed break-words text-zinc-400 not-italic">
               <p>ИП Ходжоян Артём Саркисович</p>
               <p>УНП 791392856</p>
               <p>
-                Юридический адрес: Могилевская обл., Чаусский р-н, аг. Антоновка,
-                ул. Центральная, д. 5.
+                Юридический адрес: Республика Беларусь, Могилевская обл., Чаусский
+                р-н, Антоновский с/с, аг. Антоновка, ул. Центральная, дом 5.
               </p>
               <p>
                 Свидетельство о гос. регистрации № 791392856 от 03.08.2026 выдано
