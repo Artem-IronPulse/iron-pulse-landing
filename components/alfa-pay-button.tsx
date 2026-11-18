@@ -36,19 +36,28 @@ export function AlfaPayButton({
       });
 
       const data = (await response.json().catch(() => null)) as {
+        url?: string;
         formUrl?: string;
+        error?: string;
         errorMessage?: string;
       } | null;
 
-      if (!response.ok || !data?.formUrl) {
+      const paymentUrl =
+        (typeof data?.url === "string" && data.url) ||
+        (typeof data?.formUrl === "string" && data.formUrl) ||
+        "";
+
+      if (!response.ok || !paymentUrl) {
         setError(
-          data?.errorMessage || "Не удалось перейти к оплате. Попробуйте ещё раз.",
+          data?.errorMessage ||
+            data?.error ||
+            "Не удалось перейти к оплате. Попробуйте ещё раз.",
         );
         setLoading(false);
         return;
       }
 
-      window.location.href = data.formUrl;
+      window.location.href = paymentUrl;
     } catch {
       setError("Нет связи с сервером. Проверьте интернет и попробуйте снова.");
       setLoading(false);

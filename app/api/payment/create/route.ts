@@ -26,23 +26,14 @@ function jsonError(errorMessage: string, status: number) {
 }
 
 function isBankError(errorCode: unknown) {
-  return (
-    errorCode !== undefined &&
-    errorCode !== null &&
-    String(errorCode) !== "0"
-  );
-}
+  if (errorCode === undefined || errorCode === null) return false;
 
-function isAlfaFormUrl(value: string) {
-  try {
-    const url = new URL(value);
-    return (
-      url.protocol === "https:" &&
-      (url.hostname === "alfabank.by" || url.hostname.endsWith(".alfabank.by"))
-    );
-  } catch {
-    return false;
-  }
+  const code =
+    typeof errorCode === "string" ? errorCode.trim() : String(errorCode);
+
+  if (code === "") return false;
+
+  return code !== "0";
 }
 
 function secretValues() {
@@ -390,7 +381,15 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!data.formUrl || !data.orderId || !isAlfaFormUrl(data.formUrl)) {
+    const formUrl =
+      typeof data.formUrl === "string" ? data.formUrl.trim() : "";
+
+    if (!formUrl) {
+      const bankMessage =
+        typeof data.errorMessage === "string" && data.errorMessage.trim()
+          ? data.errorMessage
+          : "Банк не вернул ссылку на оплату";
+
       console.error(
         "ALFA PAYMENT ERROR:",
         sanitizeForLog(
@@ -398,27 +397,34 @@ export async function POST(request: Request) {
             status: bankResponse.status,
             errorCode: data.errorCode,
             errorMessage: data.errorMessage,
-            hasFormUrl: Boolean(data.formUrl),
+            hasFormUrl: false,
             hasOrderId: Boolean(data.orderId),
           },
           secretValues(),
         ),
       );
 
-      return jsonError(
-        redactString(
-          typeof data.errorMessage === "string" && data.errorMessage.trim()
-            ? data.errorMessage
-            : "Банк не вернул ссылку на оплату",
-          secretValues(),
-        ),
-        502,
+      const safeMessage = redactString(bankMessage, secretValues());
+
+      return NextResponse.json(
+        {
+          success: false,
+          error: safeMessage,
+          errorMessage: safeMessage,
+        },
+        { status: 400 },
       );
     }
 
-    return Response.json({
-      formUrl: data.formUrl,
-      orderId: data.orderId,
+    const orderId =
+      typeof data.orderId === "string" && data.orderId.trim()
+        ? data.orderId
+        : undefined;
+
+    return NextResponse.json({
+      url: formUrl,
+      formUrl,
+      ...(orderId ? { orderId } : {}),
       orderNumber,
     });
   } catch (error) {
