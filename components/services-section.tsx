@@ -1,8 +1,16 @@
+import { AlfaPayButton } from "@/components/alfa-pay-button";
+
 const TELEGRAM_HREF = "https://t.me/mc_orion";
+
+type PayAction = {
+  title: string;
+  priceByn: number;
+};
 
 type PlanPoint = {
   highlight?: string;
   text: string;
+  pay?: PayAction;
 };
 
 const PLANS = [
@@ -20,8 +28,20 @@ const PLANS = [
     paymentNote: "",
     description:
       "Аудит техники и расчет RPE на первой сессии. На основе этих данных выстраиваем ваш персональный тренировочный цикл в клубе.",
+    payments: [
+      {
+        title: "Оплатить диагностику — 60 BYN",
+        priceByn: 60,
+      },
+    ] as PayAction[],
     points: [
-      { text: "Блок 5 тренировок — 325 BYN" },
+      {
+        text: "Блок 5 тренировок — 325 BYN",
+        pay: {
+          title: "Оплатить блок 5 тренировок — 325 BYN",
+          priceByn: 325,
+        },
+      },
       { text: "Диагностика техники и исходных метрик" },
       { text: "Целевой RPE на каждую сессию" },
       { text: "Правки программы по восстановлению" },
@@ -50,14 +70,26 @@ const PLANS = [
       {
         highlight: "Базовый — 250 BYN/мес.",
         text: "Программа на месяц, аудит результатов 1 раз в неделю, базовая поддержка. Для тех, кто уже умеет тренироваться самостоятельно.",
+        pay: {
+          title: "Оплатить «Базовый» — 250 BYN",
+          priceByn: 250,
+        },
       },
       {
         highlight: "Флагман — 350 BYN/мес.",
         text: "Еженедельный разбор видео вашей техники, динамическая корректировка плана по пульсу (HRV) и RPE после каждой сессии, ежедневная обратная связь.",
+        pay: {
+          title: "Оплатить «Флагман» — 350 BYN",
+          priceByn: 350,
+        },
       },
       {
         highlight: "VIP — 500 BYN/мес.",
         text: "Ежедневный аппаратный анализ биометрии (HRV, качество сна) и адаптация тренировочной нагрузки «на лету» под текущий ресурс ЦНС. Включает приоритетную связь 24/7 и регулярные персональные видеоконсультации для детального контроля биомеханики и восстановления.",
+        pay: {
+          title: "Оплатить «VIP» — 500 BYN",
+          priceByn: 500,
+        },
       },
     ] as PlanPoint[],
     cta: "Начать онлайн",
@@ -185,33 +217,50 @@ export function ServicesSection() {
                   {plan.points.map((point) => (
                     <li
                       key={point.highlight ?? point.text}
-                      className="flex gap-3 text-sm leading-relaxed text-zinc-300"
+                      className="flex flex-col gap-3 text-sm leading-relaxed text-zinc-300"
                     >
-                      <CheckIcon />
-                      <span>
-                        {point.highlight ? (
-                          <span className="font-semibold text-white">
-                            {point.highlight}{" "}
-                          </span>
-                        ) : null}
-                        {point.text}
-                      </span>
+                      <div className="flex gap-3">
+                        <CheckIcon />
+                        <span>
+                          {point.highlight ? (
+                            <span className="font-semibold text-white">
+                              {point.highlight}{" "}
+                            </span>
+                          ) : null}
+                          {point.text}
+                        </span>
+                      </div>
+                      {point.pay ? (
+                        <AlfaPayButton
+                          title={point.pay.title}
+                          priceByn={point.pay.priceByn}
+                        />
+                      ) : null}
                     </li>
                   ))}
                 </ul>
 
                 <div className="mt-auto pt-8">
-                  <a
-                    href={TELEGRAM_HREF}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={buttonClass(plan.id, plan.featured)}
-                    aria-label={`${plan.cta}: ${plan.title}`}
-                  >
-                    {plan.cta}
-                    <span className="sr-only">, откроется в новой вкладке</span>
-                    <span aria-hidden="true">→</span>
-                  </a>
+                  <div className="flex flex-col gap-3">
+                    <a
+                      href={TELEGRAM_HREF}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={buttonClass(plan.id, plan.featured)}
+                      aria-label={`${plan.cta}: ${plan.title}`}
+                    >
+                      {plan.cta}
+                      <span className="sr-only">, откроется в новой вкладке</span>
+                      <span aria-hidden="true">→</span>
+                    </a>
+                    {plan.payments?.map((payment) => (
+                      <AlfaPayButton
+                        key={payment.title}
+                        title={payment.title}
+                        priceByn={payment.priceByn}
+                      />
+                    ))}
+                  </div>
                   {plan.footnote ? (
                     <p className="mt-3 text-[0.85rem] leading-relaxed opacity-70">
                       {plan.footnote}
