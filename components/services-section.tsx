@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { AlfaPayButton } from "@/components/alfa-pay-button";
 import { TestPayButton } from "@/components/test-pay-button";
 
@@ -274,9 +273,7 @@ export function ServicesSection() {
           ))}
         </div>
 
-        <Suspense fallback={null}>
-          <TestPayButton />
-        </Suspense>
+        <TestPayButton />
       </div>
     </section>
   );

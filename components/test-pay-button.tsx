@@ -1,12 +1,23 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { AlfaPayButton } from "@/components/alfa-pay-button";
 
-export function TestPayButton() {
-  const searchParams = useSearchParams();
+function hasTestPayFlag() {
+  if (typeof window === "undefined") return false;
 
-  if (searchParams.get("test") !== "1") return null;
+  const params = new URLSearchParams(window.location.search);
+  return params.get("test") === "1";
+}
+
+export function TestPayButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setVisible(hasTestPayFlag());
+  }, []);
+
+  if (!visible) return null;
 
   return (
     <div className="mx-auto mt-10 max-w-sm border-t border-white/10 pt-8">
